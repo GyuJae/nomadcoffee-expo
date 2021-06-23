@@ -16,7 +16,7 @@ const Container = styled.View`
 `;
 
 const Logo = styled.Text`
-  font-size: xx-large;
+  font-size: 70px;
   color: white;
   font-weight: 700;
   margin: 0 auto;

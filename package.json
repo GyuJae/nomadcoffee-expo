@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "codegen": "apollo-codegen generate **/*.tsx --schema schema.json --target typescript --output operation-result-types.ts"
+    "codegen": "npx apollo-codegen generate **/*.tsx --schema schema.json --target typescript --output operation-result-types.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.3.20",
@@ -17,12 +17,10 @@
     "@react-navigation/stack": "^5.14.5",
     "@types/styled-components": "^5.1.10",
     "@types/styled-components-react-native": "^5.1.1",
-    "apollo-codegen": "^0.20.2",
     "babel-plugin-styled-components": "^1.12.0",
     "expo": "~41.0.1",
     "expo-app-loading": "^1.0.3",
     "expo-asset": "~8.3.1",
-    "expo-cli": "^4.5.2",
     "expo-font": "~9.1.0",
     "expo-status-bar": "~1.0.4",
     "graphql": "^15.5.0",
@@ -40,6 +38,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-destructuring": "^7.14.5",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "typescript": "~4.0.0"

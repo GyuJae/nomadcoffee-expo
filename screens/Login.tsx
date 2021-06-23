@@ -7,6 +7,7 @@ import AuthButton from "../components/auth/AuthButton";
 import AuthLayout from "../components/auth/AuthLayout";
 import { TextInput } from "../components/auth/AuthShared";
 import { login, loginVariables } from "../operation-result-types";
+import { Text, TouchableOpacity, View } from "react-native";
 
 type LoginInputs = {
   username: string;
@@ -23,7 +24,7 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-export default function Login({ route: { params } }: any) {
+export default function Login({ navigation, route: { params } }: any) {
   const { register, handleSubmit, setValue, watch } = useForm<LoginInputs>({
     defaultValues: {
       password: params?.password,
@@ -95,6 +96,20 @@ export default function Login({ route: { params } }: any) {
         loading={loading}
         onPress={handleSubmit(onValid)}
       />
+      <View
+        style={{
+          backgroundColor: "black",
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <TouchableOpacity onPress={() => navigation.navigate("CreateAccount")}>
+          <Text style={{ color: "white", marginTop: "20px" }}>
+            CreateAccount
+          </Text>
+        </TouchableOpacity>
+      </View>
     </AuthLayout>
   );
 }

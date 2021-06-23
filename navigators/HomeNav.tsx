@@ -1,10 +1,8 @@
 import React from "react";
 import TabIcon from "../components/nav/TabIcon";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import List from "../screens/List";
-import Search from "../screens/Search";
-import Profile from "../screens/Profile";
-import Login from "../screens/Login";
+
+import SharedStackNav from "./SharedStackNav";
 
 const Tabs = createBottomTabNavigator();
 
@@ -22,42 +20,46 @@ export default ({ isLoggedIn }: any) => {
     >
       <Tabs.Screen
         name="List"
-        component={List}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <TabIcon iconName="home" color={color} focused={focused} />
           ),
         }}
-      />
+      >
+        {() => <SharedStackNav screenName="List" />}
+      </Tabs.Screen>
       <Tabs.Screen
         name="Search"
-        component={Search}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <TabIcon iconName="search" color={color} focused={focused} />
           ),
         }}
-      />
+      >
+        {() => <SharedStackNav screenName="Search" />}
+      </Tabs.Screen>
       {isLoggedIn ? (
         <Tabs.Screen
           name="Profile"
-          component={Profile}
           options={{
             tabBarIcon: ({ focused, color }) => (
               <TabIcon iconName="person" color={color} focused={focused} />
             ),
           }}
-        />
+        >
+          {() => <SharedStackNav screenName="Profile" />}
+        </Tabs.Screen>
       ) : (
         <Tabs.Screen
           name="Login"
-          component={Login}
           options={{
             tabBarIcon: ({ focused, color }) => (
               <TabIcon iconName="person" color={color} focused={focused} />
             ),
           }}
-        />
+        >
+          {() => <SharedStackNav screenName="Login" />}
+        </Tabs.Screen>
       )}
     </Tabs.Navigator>
   );

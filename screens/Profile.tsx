@@ -11,7 +11,13 @@ export default () => {
         justifyContent: "center",
       }}
     >
-      <Text>Profile</Text>
+      <Text
+        style={{
+          color: "white",
+        }}
+      >
+        Profile
+      </Text>
     </View>
   );
 };

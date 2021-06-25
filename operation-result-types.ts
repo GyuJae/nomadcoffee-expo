@@ -32,30 +32,14 @@ export interface createAccountVariables {
 // GraphQL query operation: seeCoffeeShops
 // ====================================================
 
-export interface seeCoffeeShops_seeCoffeeShops_shops_photos {
-  id: number;
-  url: string;
-}
-
-export interface seeCoffeeShops_seeCoffeeShops_shops_user {
-  username: string;
-}
-
-export interface seeCoffeeShops_seeCoffeeShops_shops_category {
-  id: number;
-  name: string;
-  slug: string;
-}
-
 export interface seeCoffeeShops_seeCoffeeShops_shops {
   id: number;
   name: string;
-  photos: (seeCoffeeShops_seeCoffeeShops_shops_photos | null)[] | null;
-  user: seeCoffeeShops_seeCoffeeShops_shops_user;
-  category: seeCoffeeShops_seeCoffeeShops_shops_category | null;
 }
 
 export interface seeCoffeeShops_seeCoffeeShops {
+  ok: boolean;
+  error: string | null;
   shops: (seeCoffeeShops_seeCoffeeShops_shops | null)[] | null;
 }
 

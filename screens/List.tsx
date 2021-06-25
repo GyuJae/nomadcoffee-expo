@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
-import { FlatList, View, Text } from "react-native";
+import { FlatList, View, Text, ActivityIndicator } from "react-native";
 import {
   seeCoffeeShops,
   seeCoffeeShopsVariables,
@@ -11,21 +11,11 @@ import { useState } from "react";
 const SEECOFFEESHOPS_QUERY = gql`
   query seeCoffeeShops($page: Int!) {
     seeCoffeeShops(page: $page) {
+      ok
+      error
       shops {
         id
         name
-        photos {
-          id
-          url
-        }
-        user {
-          username
-        }
-        category {
-          id
-          name
-          slug
-        }
       }
     }
   }
@@ -58,8 +48,10 @@ export default () => {
       <Text style={{ color: "white", marginTop: "20px" }}>{item?.name}</Text>
     </View>
   );
+  console.log("List:::::", data?.seeCoffeeShops.error, loading);
 
   return (
+    /*
     <ScreenLayout loading={loading}>
       <FlatList
         onEndReachedThreshold={0.05}
@@ -78,5 +70,13 @@ export default () => {
         renderItem={renderItem}
       />
     </ScreenLayout>
+    */
+    <View>
+      {loading ? (
+        <ActivityIndicator color="white" />
+      ) : (
+        <Text>{data?.seeCoffeeShops}</Text>
+      )}
+    </View>
   );
 };
